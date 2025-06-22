@@ -24,8 +24,15 @@ public interface EmployeeMapper {
     @Delete("delete from employee where id != #{id}")
     void allDelete(Long id);
 
+
     Page<Employee> pageQuery(EmployeePageQueryDTO employeePageQueryDTO);
 
     @Update("update employee set status = #{status} where id = #{id}")
     void startOrStop(Employee build);
+
+    @Select("select * from employee where id = #{id}")
+    Employee getById(Long id);
+
+
+    void update(Employee employee);
 }
